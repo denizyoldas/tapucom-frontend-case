@@ -1,6 +1,6 @@
 import AccountLayout from '@/components/layout/account-layout'
 import Input from '@/components/UI/input'
-import Title from '@/components/UI/Title'
+import Title from '@/components/UI/title'
 import React from 'react'
 
 const Account = () => {
