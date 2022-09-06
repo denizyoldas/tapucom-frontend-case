@@ -14,7 +14,7 @@ const BottomNavItem = ({ name, icon, path, isActive }: Props) => {
     <Link href={path}>
       <div
         className={cx(
-          'px-4 py-2 flex flex-col h-20 items-center justify-center',
+          'px-4 py-2 h-20 w-24 flex flex-col items-center justify-center flex-shrink-0 outline-none focus:outline-none',
           {
             'text-primary': isActive
           }

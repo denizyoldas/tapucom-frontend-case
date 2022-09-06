@@ -5,7 +5,7 @@ interface Props {
 }
 
 const AccountLayout = ({ children }: Props) => {
-  return <div className="mt-20 px-10 h-screen">{children}</div>
+  return <div className="mt-20 px-6 h-screen">{children}</div>
 }
 
 export default AccountLayout

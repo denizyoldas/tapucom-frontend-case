@@ -24,11 +24,7 @@ const BottomNav = () => {
   const router = useRouter()
 
   return (
-    <div
-      className={cx(
-        'fixed flex items-center justify-center bottom-0 w-full h-24'
-      )}
-    >
+    <div className="fixed flex items-center justify-center bottom-0 Z-10 px-4 h-24 w-full bg-[#FAFAFA]">
       {BOTTOM_NAV_LIST.map(item => (
         <BottomNavItem
           {...item}

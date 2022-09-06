@@ -10,6 +10,8 @@ export default class Document extends NextDocument {
           <link rel="apple-touch-icon" href="/icon.png" />
           <meta name="theme-color" content="#fff" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"
@@ -20,8 +22,10 @@ export default class Document extends NextDocument {
             rel="stylesheet"
           />
         </Head>
-        <Main />
-        <NextScript />
+        <body className="w-full h-screen overflow-hidden">
+          <Main />
+          <NextScript />
+        </body>
       </Html>
     )
   }

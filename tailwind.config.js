@@ -12,7 +12,9 @@ module.exports = {
       colors: {
         primary: '#E82223',
         secondary: '#BBC3CF',
-        tertiary: '#0078E3'
+        tertiary: '#0078E3',
+        active: '#0DAFC0',
+        danger: '#F44336'
       },
       fontFamily: {
         mono: ['Nunito Mono', ...fontFamily.mono],

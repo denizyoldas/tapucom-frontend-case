@@ -2,7 +2,7 @@ import React from 'react'
 
 interface Input {
   label?: string
-  type?: string
+  type?: 'text' | 'password' | 'email'
   placeholder?: string
   value?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -17,7 +17,7 @@ const Input = ({ label, type, placeholder, value, onChange }: Input) => {
         placeholder={placeholder}
         value={value}
         onChange={onChange}
-        className="border border-gray-300 rounded-md p-2"
+        className="border-b border-gray-300 pl-1 pr-2 pt-2 pb-2 focus:outline-none focus:border-active focus:border-b-2 transition-colors duration-200 ease-out mb-8"
       />
     </div>
   )
