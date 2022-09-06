@@ -17,8 +17,8 @@ const ListPage = () => {
   }
 
   return (
-    <div className="p-6">
-      <div className="overflow-y-auto h-[70vh]">
+    <div className="py-6">
+      <div className="overflow-y-auto h-[70vh] px-6 scroll-smooth">
         {products.map(product => (
           <ListItem {...product} key={product.id} />
         ))}
