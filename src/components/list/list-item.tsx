@@ -5,7 +5,6 @@ import { FaMapMarkerAlt } from 'react-icons/fa'
 import AddCartButton from './add-cart-button'
 import { useDispatch } from 'react-redux'
 import { addCardItem, removeCardItem } from '@/store/cardSlice'
-import CurrFormat from 'react-currency-format'
 import Currency from '../UI/currency'
 
 interface Props {

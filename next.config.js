@@ -10,6 +10,9 @@ const withPWA = require('next-pwa')({
 
 const nextConfig = {
   i18n,
+  images: {
+    domains: ['assets.example.com', 'picsum.photos']
+  },
   reactStrictMode: true,
   swcMinify: true
 }
