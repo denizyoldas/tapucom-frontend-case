@@ -11,7 +11,37 @@ const PRODUCTS = [
     description: '2 Bedrooms, 1 Bathroom',
     image: '/images/product.png',
     rating: 5.0,
-    price: 1_000_000.12,
+    price: 10_000,
+    distance: 3,
+    isAdded: false
+  },
+  {
+    id: nanoid(),
+    name: 'Villa Bosphorus',
+    description: '2 Bedrooms, 1 Bathroom',
+    image: '/images/product.png',
+    rating: 3.0,
+    price: 20_000,
+    distance: 3,
+    isAdded: false
+  },
+  {
+    id: nanoid(),
+    name: 'Villa Bosphorus',
+    description: '2 Bedrooms, 1 Bathroom',
+    image: '/images/product.png',
+    rating: 1.0,
+    price: 2_000,
+    distance: 3,
+    isAdded: false
+  },
+  {
+    id: nanoid(),
+    name: 'Villa Bosphorus',
+    description: '2 Bedrooms, 1 Bathroom',
+    image: '/images/product.png',
+    rating: 2.0,
+    price: 24_000,
     distance: 3,
     isAdded: false
   },
@@ -21,37 +51,7 @@ const PRODUCTS = [
     description: '2 Bedrooms, 1 Bathroom',
     image: '/images/product.png',
     rating: 5.0,
-    price: 1_000_000,
-    distance: 3,
-    isAdded: true
-  },
-  {
-    id: nanoid(),
-    name: 'Villa Bosphorus',
-    description: '2 Bedrooms, 1 Bathroom',
-    image: '/images/product.png',
-    rating: 5.0,
-    price: 1_000_000,
-    distance: 3,
-    isAdded: false
-  },
-  {
-    id: nanoid(),
-    name: 'Villa Bosphorus',
-    description: '2 Bedrooms, 1 Bathroom',
-    image: '/images/product.png',
-    rating: 5.0,
-    price: 1_000_000,
-    distance: 3,
-    isAdded: false
-  },
-  {
-    id: nanoid(),
-    name: 'Villa Bosphorus',
-    description: '2 Bedrooms, 1 Bathroom',
-    image: '/images/product.png',
-    rating: 5.0,
-    price: 1_000_000,
+    price: 28_000,
     distance: 3,
     isAdded: false
   }
@@ -103,5 +103,7 @@ export const cardSlice = createSlice({
 export const { addCardItem, removeCardItem } = cardSlice.actions
 
 export const selectCardItems = (state: AppState) => state.card.items
+export const selectedCardItems = (state: AppState) =>
+  state.card.items.filter(item => item.isAdded)
 
 export default cardSlice.reducer
