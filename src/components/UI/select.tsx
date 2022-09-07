@@ -47,16 +47,13 @@ const Select = ({
       {label && <label className="text-sm">{label}</label>}
       <select
         value={value}
+        defaultValue={locale}
         onChange={handleChange}
         className="border-b border-gray-300 pl-1 pr-2 pt-2 pb-2 focus:outline-none focus:border-active focus:border-b-2 transition-colors duration-200 ease-out mb-8"
       >
         {placeholder && <option value="">{placeholder}</option>}
         {items.map(option => (
-          <option
-            key={option.value}
-            value={option.value}
-            selected={option.value === locale}
-          >
+          <option key={option.value} value={option.value}>
             {option.label}
           </option>
         ))}
