@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Button from '@/components/UI/button'
 import Input from '@/components/UI/input'
 import Select from '@/components/UI/select'
@@ -6,48 +6,33 @@ import { useDispatch } from 'react-redux'
 import { setAuthState, setAuthUser } from '@/store/authSlice'
 import { toast } from 'react-toastify'
 import { useTranslation } from 'next-i18next'
+import { useForm, SubmitHandler } from 'react-hook-form'
+
+interface IRegisterForm {
+  email: string
+  password: string
+  locale: string
+}
 
 const SignUp = () => {
-  const [formValid, setFormValid] = useState(false)
-  const [form, setForm] = useState({
-    email: {
-      value: '',
-      type: 'email',
-      label: 'Email',
-      errorMessage: 'Enter correct email',
-      valid: false,
-      touched: false,
-      validation: {
-        required: true,
-        email: true
-      }
-    },
-    password: {
-      value: '',
-      type: 'password',
-      label: 'Password',
-      errorMessage: 'Enter correct password',
-      valid: false,
-      touched: false,
-      validation: {
-        required: true,
-        minLength: 6
-      }
-    }
-  })
   const dispatch = useDispatch()
   const { t } = useTranslation('common')
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors, isValid }
+  } = useForm<IRegisterForm>({
+    mode: 'onChange'
+  })
 
-  const loginRequest = async () => {
-    const res = await fetch('/api/auth/login', {
+  const registerRequest = async (payload: IRegisterForm) => {
+    const res = await fetch('/api/auth/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        email: 'deniz@tapu.com',
-        password: '123456'
-      })
+      body: JSON.stringify(payload)
     })
 
     const data = await res.json()
@@ -61,24 +46,35 @@ const SignUp = () => {
     }
   }
 
-  const signUpHandler = (event: any) => {
-    event.preventDefault()
-    console.log(event.target)
-    // dispatch(setAuthState(true))
-    loginRequest()
+  const signUpHandler: SubmitHandler<IRegisterForm> = data => {
+    registerRequest(data)
   }
 
   return (
-    <form onSubmit={signUpHandler}>
+    <form onSubmit={handleSubmit(signUpHandler)}>
       <Input
         type="email"
         placeholder="E-mail"
-        onChange={() => setFormValid(true)}
-        name="email"
+        {...register('email', {
+          required: true,
+          pattern: /^\S+@\S+$/i,
+          maxLength: 50
+        })}
       />
-      <Input type="password" placeholder={t('text-password')} name="password" />
-      <Select />
-      <Button disabled={!formValid} type="submit" variant="primary">
+      {/* {errors.email && (
+        <span className="pb-2 text-red-500">{t('text-email-error')}</span>
+      )} */}
+      <Input
+        type="password"
+        placeholder={t('text-password')}
+        {...register('password', { required: true, minLength: 6 })}
+      />
+      {/* {errors.password && (
+        <span className="pb-2 text-red-500">{t('text-password-error')}</span>
+      )} */}
+      <label>{t('text-locale')}</label>
+      <Select {...register('locale')} />
+      <Button disabled={!isValid} type="submit" variant="primary">
         {t('text-sign-up')}
       </Button>
     </form>

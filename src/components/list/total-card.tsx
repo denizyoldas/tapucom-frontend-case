@@ -14,15 +14,15 @@ const TotalCard = () => {
   const totalWithTax = total + tax
 
   return (
-    <div className="flex flex-col justify-center gap-4 h-2/6 p-6">
-      <h1 className="text-2xl font-bold">{t('total-products')}:</h1>
-      <div>
+    <div className="basic-1/2 my-6 px-6">
+      <h1 className="text-2xl font-bold pb-2">{t('total-products')}:</h1>
+      <div className="pb-1">
         {t('text-total')}: <Currency value={total} />
       </div>
-      <div>
+      <div className="pb-1">
         {t('text-tax-and-cargo')}: <Currency value={tax} />
       </div>
-      <div className="font-semibold text-lg">
+      <div className="font-semibold text-lg ">
         {t('text-total-with-tax')}: <Currency value={totalWithTax} />
       </div>
     </div>

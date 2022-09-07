@@ -15,5 +15,8 @@
   "bottom-nav-account": "Account",
   "bottom-nav-list": "List",
   "text-no-products-on-list": "There is no product on the list.",
-  "text-name-surname": "Full Name"
+  "text-name-surname": "Full Name",
+  "text-locale": "Locale",
+  "text-email-error": "Email Address is required",
+  "text-password-error": "Password is required"
 }

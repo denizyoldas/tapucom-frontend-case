@@ -34,9 +34,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Tapu.com</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Header />
       <Layout>
-        <Component {...pageProps} />
+        <Header />
+        <div className="h-[calc(100vh-96px)] md:h-full">
+          <Component {...pageProps} />
+        </div>
+        <BottomNav />
       </Layout>
       <ToastContainer
         position="top-right"
@@ -47,7 +50,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         closeOnClick
         pauseOnHover
       />
-      <BottomNav />
     </>
   )
 }

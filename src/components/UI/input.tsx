@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { InputHTMLAttributes } from 'react'
 
-interface Input {
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
   name?: string
   label?: string
   type?: 'text' | 'password' | 'email'
@@ -9,13 +9,17 @@ interface Input {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-const Input = ({ label, type, placeholder, name, value, onChange }: Input) => {
+const Input = React.forwardRef<HTMLInputElement, Props>(function Input(
+  { label, type, placeholder, name, value, onChange },
+  ref
+) {
   return (
     <div className="flex flex-col">
       {label && <label className="text-sm">{label}</label>}
       <input
+        ref={ref}
         type={type}
-        placeholder={placeholder}
+        placeholder={placeholder || ''}
         value={value}
         name={name}
         onChange={onChange}
@@ -23,6 +27,6 @@ const Input = ({ label, type, placeholder, name, value, onChange }: Input) => {
       />
     </div>
   )
-}
+})
 
 export default Input

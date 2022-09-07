@@ -15,5 +15,8 @@
   "bottom-nav-account": "Hesap",
   "bottom-nav-list": "Liste",
   "text-no-products-on-list": "Listede ürün bulunmamaktadır.",
-  "text-name-surname": "Ad Soyad"
+  "text-name-surname": "Ad Soyad",
+  "text-locale": "yerel ayar",
+  "text-email-error": "E-posta Adresi gerekli",
+  "text-password-error": "Şifre gereklidir"
 }
