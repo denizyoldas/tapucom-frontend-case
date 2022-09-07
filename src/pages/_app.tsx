@@ -1,4 +1,3 @@
-import BottomNav from '@/components/bottom-nav'
 import { appWithTranslation } from 'next-i18next'
 import '@styles/globals.css'
 import type { AppProps } from 'next/app'
@@ -9,6 +8,9 @@ import 'react-toastify/dist/ReactToastify.css'
 import { useDispatch } from 'react-redux'
 import { initializeCard } from '@/store/cardSlice'
 import { useEffect } from 'react'
+// import Layout from '@/components/layout'
+import Header from '@/components/header'
+import BottomNav from '@/components/bottom-nav'
 
 const Noop: React.FC = ({ children }: any) => <>{children}</>
 
@@ -32,6 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Tapu.com</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+      <Header />
       <Layout>
         <Component {...pageProps} />
       </Layout>

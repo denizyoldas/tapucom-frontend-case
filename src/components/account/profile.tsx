@@ -1,21 +1,15 @@
 import React from 'react'
 import Button from '../UI/button'
 import Select from '../UI/select'
-import { useDispatch } from 'react-redux'
-import { setAuthState } from '@/store/authSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectUser, setAuthState } from '@/store/authSlice'
 import SecretText from '../UI/secret-text'
-
-const LOCALES = [
-  { label: 'Türkçe', value: 'tr' },
-  {
-    label: 'English',
-    value: 'en'
-  },
-  { label: 'Deutsch', value: 'de' }
-]
+import { useTranslation } from 'next-i18next'
 
 const Profile = () => {
   const dispatch = useDispatch()
+  const user = useSelector(selectUser)
+  const { t } = useTranslation('common')
 
   const logOutHandler = () => {
     dispatch(setAuthState(false))
@@ -24,18 +18,23 @@ const Profile = () => {
   return (
     <>
       <div className="">
-        <div>E-mail: deniz.aksu@tapu.com</div>
         <div>
-          Password: <SecretText text={'121231'} />
+          {t('text-name-surname')} {user.name}
         </div>
-        <div>Current Locale: TR</div>
+        <div>E-mail: {user.email}</div>
+        <div>
+          {t('text-password')}: <SecretText text={user.password} />
+        </div>
+        <div>
+          {t('text-current-locale')}: {user.language}
+        </div>
       </div>
       <div>
-        <Select options={LOCALES} />
+        <Select />
       </div>
       <div>
         <Button variant="outline" onClick={logOutHandler}>
-          Log Out
+          {t('text-logout')}
         </Button>
       </div>
     </>

@@ -1,5 +1,6 @@
 import { siteSettings } from '@/settings/site.settings'
 import { ISelectOption } from '@/types/common.model'
+import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 
 interface Props {
@@ -8,10 +9,20 @@ interface Props {
   placeholder?: string
   value?: string
   onChange?: (e: React.ChangeEvent<HTMLSelectElement>) => void
+  isLanguage?: boolean
 }
 
-const Select = ({ options, label, placeholder, value, onChange }: Props) => {
+const Select = ({
+  options,
+  label,
+  placeholder,
+  value,
+  onChange,
+  isLanguage = true
+}: Props) => {
   const [items, setItems] = useState<ISelectOption[]>([])
+  const router = useRouter()
+  const { locale } = router
 
   useEffect(() => {
     if (options) {
@@ -21,17 +32,31 @@ const Select = ({ options, label, placeholder, value, onChange }: Props) => {
     }
   }, [options])
 
+  const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    if (onChange) {
+      onChange(e)
+    }
+
+    if (isLanguage) {
+      router.push(router.pathname, router.pathname, { locale: e.target.value })
+    }
+  }
+
   return (
     <div className="flex flex-col relative">
       {label && <label className="text-sm">{label}</label>}
       <select
         value={value}
-        onChange={onChange}
+        onChange={handleChange}
         className="border-b border-gray-300 pl-1 pr-2 pt-2 pb-2 focus:outline-none focus:border-active focus:border-b-2 transition-colors duration-200 ease-out mb-8"
       >
         {placeholder && <option value="">{placeholder}</option>}
         {items.map(option => (
-          <option key={option.value} value={option.value}>
+          <option
+            key={option.value}
+            value={option.value}
+            selected={option.value === locale}
+          >
             {option.label}
           </option>
         ))}

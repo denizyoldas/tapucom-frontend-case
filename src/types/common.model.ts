@@ -1,3 +1,5 @@
+import { Language } from './enum'
+
 export interface ISelectOption {
   label: string
   value: string
@@ -20,4 +22,5 @@ export interface IUser {
   email: string
   password: string
   role: string
+  language: Language
 }

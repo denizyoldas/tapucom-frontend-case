@@ -1,3 +1,19 @@
 {
-  "account": "Account"
+  "account": "Account",
+  "text-password": "Password",
+  "text-current-locale": "Current Locale",
+  "text-logout": "Log Out",
+  "text-login-success": "Login success",
+  "text-sign-up": "Sign Up",
+  "text-remove-from-cart": "Remove from cart",
+  "text-add-to-cart": "Add to cart",
+  "text-price": "Price",
+  "total-products": "Total of Products",
+  "text-total": "Total",
+  "text-tax-and-cargo": "Tax and Cargo",
+  "text-total-with-tax": "Total with tax",
+  "bottom-nav-account": "Account",
+  "bottom-nav-list": "List",
+  "text-no-products-on-list": "There is no product on the list.",
+  "text-name-surname": "Full Name"
 }

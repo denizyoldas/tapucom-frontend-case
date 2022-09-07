@@ -1,3 +1,19 @@
 {
-  "account": "Hesap"
+  "account": "Hesap",
+  "text-password": "Şifre",
+  "text-current-locale": "Geçerli Yerel Ayar",
+  "text-logout": "Çıkış Yap",
+  "text-login-success": "Giriş başarılı",
+  "text-sign-up": "Üye Ol",
+  "text-remove-from-cart": "Sepetten Çıkar",
+  "text-add-to-cart": "Sepete Ekele",
+  "text-price": "Fiyat",
+  "total-products": "Ürünlerin Toplamı",
+  "text-total": "Toplam",
+  "text-tax-and-cargo": "Vergi ve Kargo",
+  "text-total-with-tax": "Genel Toplam",
+  "bottom-nav-account": "Hesap",
+  "bottom-nav-list": "Liste",
+  "text-no-products-on-list": "Listede ürün bulunmamaktadır.",
+  "text-name-surname": "Ad Soyad"
 }

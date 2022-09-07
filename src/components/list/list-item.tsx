@@ -6,6 +6,7 @@ import AddCartButton from './add-cart-button'
 import { useDispatch } from 'react-redux'
 import { addCardItem, removeCardItem } from '@/store/cardSlice'
 import Currency from '../UI/currency'
+import { useTranslation } from 'next-i18next'
 
 interface Props {
   id: string
@@ -29,6 +30,7 @@ const ListItem = ({
   isAdded
 }: Props) => {
   const dispatch = useDispatch()
+  const { t } = useTranslation('common')
 
   const addCardHandler = () => {
     dispatch(isAdded ? removeCardItem(id) : addCardItem(id))
@@ -44,6 +46,7 @@ const ListItem = ({
             src={image}
             alt="image"
             className="w-28 h-28 rounded-xl object-cover"
+            loading="lazy"
           />
         </div>
         <div className="flex flex-col items-start justify-center ml-4">
@@ -63,7 +66,7 @@ const ListItem = ({
           </div>
           <div>
             <span className="text-xs">
-              Fiyat: <Currency value={price} />
+              {t('text-price')}: <Currency value={price} />
             </span>
           </div>
         </div>

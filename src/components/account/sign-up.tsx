@@ -5,6 +5,7 @@ import Select from '@/components/UI/select'
 import { useDispatch } from 'react-redux'
 import { setAuthState, setAuthUser } from '@/store/authSlice'
 import { toast } from 'react-toastify'
+import { useTranslation } from 'next-i18next'
 
 const SignUp = () => {
   const [formValid, setFormValid] = useState(false)
@@ -35,6 +36,7 @@ const SignUp = () => {
     }
   })
   const dispatch = useDispatch()
+  const { t } = useTranslation('common')
 
   const loginRequest = async () => {
     const res = await fetch('/api/auth/login', {
@@ -43,7 +45,7 @@ const SignUp = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        email: 'demo@demo.com',
+        email: 'deniz@tapu.com',
         password: '123456'
       })
     })
@@ -51,7 +53,7 @@ const SignUp = () => {
     const data = await res.json()
 
     if (data.success) {
-      toast.success('Login success')
+      toast.success(t('text-login-success'))
       dispatch(setAuthState(true))
       dispatch(setAuthUser(data.user))
     } else {
@@ -74,10 +76,10 @@ const SignUp = () => {
         onChange={() => setFormValid(true)}
         name="email"
       />
-      <Input type="password" placeholder="Password" name="password" />
+      <Input type="password" placeholder={t('text-password')} name="password" />
       <Select />
       <Button disabled={!formValid} type="submit" variant="primary">
-        Sign Up
+        {t('text-sign-up')}
       </Button>
     </form>
   )

@@ -1,6 +1,7 @@
 import React from 'react'
 import cx from 'classnames'
 import { IoIosRemoveCircleOutline, IoIosAddCircleOutline } from 'react-icons/io'
+import { useTranslation } from 'next-i18next'
 
 interface Props {
   isAdded: boolean
@@ -8,6 +9,7 @@ interface Props {
 }
 
 const AddCartButton = ({ isAdded, onClick }: Props) => {
+  const { t } = useTranslation('common')
   return (
     <button
       onClick={onClick}
@@ -18,12 +20,12 @@ const AddCartButton = ({ isAdded, onClick }: Props) => {
       {isAdded ? (
         <span className="text-danger flex">
           <IoIosRemoveCircleOutline size={20} className="mr-2" />
-          Sepetten Çıkar
+          {t('text-remove-from-cart')}
         </span>
       ) : (
         <span className="text-tertiary flex">
           <IoIosAddCircleOutline size={20} className="mr-2" />
-          Sepete Ekle
+          {t('text-add-to-cart')}
         </span>
       )}
     </button>

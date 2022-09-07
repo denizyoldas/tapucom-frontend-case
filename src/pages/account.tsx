@@ -1,6 +1,5 @@
 import Profile from '@/components/account/profile'
 import SignUp from '@/components/account/sign-up'
-import AccountLayout from '@/components/layout/account-layout'
 import Title from '@/components/UI/title'
 import { selectAuthState } from '@/store/authSlice'
 import React from 'react'
@@ -13,14 +12,12 @@ const Account = () => {
   const { t } = useTranslation('common')
 
   return (
-    <>
+    <div className="mt-20 px-6 h-screen">
       <Title className="mb-8">{t('account')}</Title>
       {authState ? <Profile /> : <SignUp />}
-    </>
+    </div>
   )
 }
-
-Account.Layout = AccountLayout
 
 export default Account
 
