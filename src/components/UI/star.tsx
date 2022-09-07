@@ -10,7 +10,7 @@ const Star = ({ rate }: Props) => {
       <svg
         id="eGbOUuVyQpY1"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 300 300"
+        viewBox="10 10 300 300"
         shapeRendering="geometricPrecision"
         textRendering="geometricPrecision"
       >

@@ -6,6 +6,7 @@ import AddCartButton from './add-cart-button'
 import { useDispatch } from 'react-redux'
 import { addCardItem, removeCardItem } from '@/store/cardSlice'
 import CurrFormat from 'react-currency-format'
+import Currency from '../UI/currency'
 
 interface Props {
   id: string
@@ -35,31 +36,35 @@ const ListItem = ({
   }
 
   return (
-    <div className="flex flex-col items-center gap-2 w-full h-36 border-b border-[#F1F3F5]">
+    <div className="flex flex-col items-center gap-2 w-full border-b py-4 border-[#F1F3F5] snap-center">
       <div className="flex flex-row items-center justify-start w-full">
-        <Image
-          width={100}
-          height={100}
-          src={image}
-          alt="image"
-          className="w-28 h-28 rounded-xl object-cover"
-        />
+        <div className="drop-shadow-image">
+          <Image
+            width={100}
+            height={100}
+            src={image}
+            alt="image"
+            className="w-28 h-28 rounded-xl object-cover"
+          />
+        </div>
         <div className="flex flex-col items-start justify-center ml-4">
-          <h3 className="text-lg font-medium">{name}</h3>
-          <div className="text-gray-400 text-sm">{description}</div>
-          <div className="flex justify-between">
+          <h3 className="text-lg font-medium pb-2">{name}</h3>
+          <div className="text-gray-400 text-sm font-light pb-1">
+            {description}
+          </div>
+          <div className="flex  items-center justify-center gap-8 pb-1">
             <div className="flex items-center justify-center">
               <Star rate={rating} />
-              <span>{rating}.0</span>
+              <span className="text-sm">{rating}.0</span>
             </div>
-            <div className="flex items-center justify-center">
-              <FaMapMarkerAlt color="#0DAFC0" />
-              <span className="text-gray-400 ml-1">{distance} km</span>
+            <div className="flex">
+              <FaMapMarkerAlt color="#0DAFC0" size={15} />
+              <span className="ml-1 text-sm">{distance} km</span>
             </div>
           </div>
           <div>
-            <span className="font-light">
-              Fiyat: <CurrFormat value={price} prefix="TL" />
+            <span className="text-xs">
+              Fiyat: <Currency value={price} />
             </span>
           </div>
         </div>

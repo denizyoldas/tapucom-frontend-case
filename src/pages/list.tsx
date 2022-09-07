@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux'
 
 const ListPage = () => {
   const products = useSelector(selectCardItems)
-  // const products: any[] = []
 
   if (products.length === 0) {
     return (
@@ -18,7 +17,7 @@ const ListPage = () => {
 
   return (
     <div className="py-6">
-      <div className="overflow-y-auto h-[70vh] px-6 scroll-smooth">
+      <div className="overflow-y-auto h-[63vh] px-6 scroll-smooth snap-y">
         {products.map(product => (
           <ListItem {...product} key={product.id} />
         ))}

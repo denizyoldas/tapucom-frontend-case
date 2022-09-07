@@ -1,4 +1,4 @@
-import { siteSettings } from '@/store/site.settings'
+import { siteSettings } from '@/settings/site.settings'
 import { ISelectOption } from '@/types/common.model'
 import React, { useEffect, useState } from 'react'
 

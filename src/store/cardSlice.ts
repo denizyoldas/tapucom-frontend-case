@@ -11,7 +11,7 @@ const PRODUCTS = [
     description: '2 Bedrooms, 1 Bathroom',
     image: '/images/product.png',
     rating: 5.0,
-    price: 1_000_000,
+    price: 1_000_000.12,
     distance: 3,
     isAdded: false
   },
