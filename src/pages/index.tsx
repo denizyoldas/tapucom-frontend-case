@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import react from 'react'
 
 const Home = () => {
   return (

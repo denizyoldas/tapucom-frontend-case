@@ -2,7 +2,8 @@ import React from 'react'
 import cx from 'classnames'
 
 interface Props {
-  type?: 'primary' | 'outline' | 'text'
+  variant?: 'primary' | 'outline' | 'text'
+  type?: 'button' | 'submit' | 'reset'
   className?: string
   disabled?: boolean
   children: React.ReactNode
@@ -10,7 +11,8 @@ interface Props {
 }
 
 const Button = ({
-  type,
+  type = 'button',
+  variant = 'primary',
   className = 'primary',
   disabled = false,
   onClick,
@@ -24,10 +26,11 @@ const Button = ({
         {
           'bg-gray-400 cursor-not-allowed': disabled,
           'bg-transparent !text-primary border border-primary':
-            type === 'outline'
+            variant === 'outline'
         }
       )}
       onClick={disabled ? undefined : onClick}
+      type={type}
     >
       {children}
     </button>

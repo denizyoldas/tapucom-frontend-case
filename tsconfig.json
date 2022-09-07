@@ -20,7 +20,8 @@
       "@components/*": ["./src/components/*"],
       "@pages/*": ["./src/pages/*"],
       "@styles/*": ["./styles/*"],
-      "@settings/*": ["./src/settings/*"]
+      "@settings/*": ["./src/settings/*"],
+      "@data/*": ["./src/data/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
