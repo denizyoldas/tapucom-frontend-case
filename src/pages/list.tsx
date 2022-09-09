@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import ListItem from '@/components/list/list-item'
 import TotalCard from '@/components/list/total-card'
 import { selectCardItems } from '@/store/cardSlice'
@@ -10,24 +10,28 @@ import ClipLoader from 'react-spinners/ClipLoader'
 const ListPage = () => {
   const products = useSelector(selectCardItems)
   const { t } = useTranslation('common')
+  const [innerHeight, setInnerHeight] = useState(0)
+
+  useEffect(() => {
+    setInnerHeight(window.innerHeight)
+  }, [])
 
   if (products.length === 0) {
     return (
       <div className="flex items-center justify-center h-96">
         <ClipLoader loading />
       </div>
-      // <div className="flex flex-col items-center justify-center w-full h-full px-6">
-      //   <h1 className="text-2xl font-light">{t('text-no-products-on-list')}</h1>
-      // </div>
     )
   }
 
   return (
     <div
-      className="pt-6 h-full flex flex-col md:w-[50%] md:mx-auto"
-      // style={{ display: 'grid', gridTemplateRows: 'auto 30%' }}
+      className="pt-6 flex flex-col md:w-[50%] md:mx-auto"
+      style={{
+        height: innerHeight - 96
+      }}
     >
-      <div className="overflow-y-auto px-6 scroll-smooth snap-y basic-1/2 h-[calc(100vh-290px)]">
+      <div className="overflow-y-auto px-6 scroll-smooth snap-y basic-1/2">
         {products.map(product => (
           <ListItem {...product} key={product.id} />
         ))}

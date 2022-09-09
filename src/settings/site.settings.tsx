@@ -4,7 +4,7 @@ export const siteSettings = {
   languages: [
     {
       id: 'tr',
-      label: 'Turkiye',
+      label: 'Türkçe',
       value: 'tr'
     },
     {
