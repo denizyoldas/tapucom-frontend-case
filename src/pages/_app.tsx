@@ -34,13 +34,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Tapu.com</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Layout>
-        <Header />
-        <div className="h-[calc(100vh-96px)] md:h-full">
-          <Component {...pageProps} />
-        </div>
+      <Header />
+      <div>
+        <Component {...pageProps} />
         <BottomNav />
-      </Layout>
+      </div>
+
       <ToastContainer
         position="top-right"
         autoClose={8000}

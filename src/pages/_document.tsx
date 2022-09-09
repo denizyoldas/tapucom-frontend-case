@@ -21,7 +21,7 @@ export default class Document extends NextDocument {
             rel="stylesheet"
           />
         </Head>
-        <body className="w-full h-screen overflow-hidden">
+        <body className="w-full h-full overflow-hidden">
           <Main />
           <NextScript />
         </body>

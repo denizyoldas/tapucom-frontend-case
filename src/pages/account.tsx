@@ -12,7 +12,7 @@ const Account = () => {
   const { t } = useTranslation('common')
 
   return (
-    <div className="mt-20 px-6 h-screen">
+    <div className="mt-20 px-6 h-screen md:w-[50%] md:mx-auto">
       <Title className="mb-8">{t('account')}</Title>
       {authState ? <Profile /> : <SignUp />}
     </div>

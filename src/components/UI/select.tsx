@@ -47,7 +47,7 @@ const Select = React.forwardRef<HTMLSelectElement, Props>(function Select(
         ref={ref}
         value={value ? value : locale}
         onChange={handleChange}
-        className="border-b border-gray-300 pl-1 pr-2 pt-2 pb-2 focus:outline-none focus:border-active focus:border-b-2 transition-colors duration-200 ease-out mb-8"
+        className="border-b border-gray-300 pl-1 pr-2 pt-2 pb-2 focus:outline-none focus:border-active focus:border-b-2 transition-colors duration-200 ease-out mb-8 select !bg-white"
       >
         {placeholder && <option value="">{placeholder}</option>}
         {items.map(option => (

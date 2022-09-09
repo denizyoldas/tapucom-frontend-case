@@ -18,5 +18,7 @@
   "text-name-surname": "Ad Soyad",
   "text-locale": "yerel ayar",
   "text-email-error": "E-posta Adresi gerekli",
-  "text-password-error": "Şifre gereklidir"
+  "text-password-error": "Şifre gereklidir",
+  "header-text-list": "Liste",
+  "header-text-account": "Hesap"
 }

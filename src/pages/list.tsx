@@ -24,10 +24,10 @@ const ListPage = () => {
 
   return (
     <div
-      className="pt-6 h-full flex flex-col"
+      className="pt-6 h-full flex flex-col md:w-[50%] md:mx-auto"
       // style={{ display: 'grid', gridTemplateRows: 'auto 30%' }}
     >
-      <div className="overflow-y-auto px-6 scroll-smooth snap-y basic-1/2">
+      <div className="overflow-y-auto px-6 scroll-smooth snap-y basic-1/2 h-[calc(100vh-290px)]">
         {products.map(product => (
           <ListItem {...product} key={product.id} />
         ))}

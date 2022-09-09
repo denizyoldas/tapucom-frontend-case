@@ -18,5 +18,7 @@
   "text-name-surname": "Full Name",
   "text-locale": "Locale",
   "text-email-error": "Email Address is required",
-  "text-password-error": "Password is required"
+  "text-password-error": "Password is required",
+  "header-text-list": "List",
+  "header-text-account": "Account"
 }
