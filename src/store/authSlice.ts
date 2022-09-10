@@ -1,4 +1,5 @@
 import { IUser } from '@/types/common.model'
+import { Language } from '@/types/enum'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { HYDRATE } from 'next-redux-wrapper'
 import { AppState } from '.'
@@ -15,7 +16,8 @@ const initialState: AuthState = {
     name: '',
     email: '',
     password: '',
-    role: ''
+    role: '',
+    language: Language.Turkish
   }
 }
 
