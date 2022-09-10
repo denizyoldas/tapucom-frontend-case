@@ -16,8 +16,8 @@ const Profile = () => {
   }
 
   return (
-    <>
-      <div className="">
+    <div className="mt-10">
+      <div className="flex flex-col gap-3">
         <div>
           {t('text-name-surname')} {user.name}
         </div>
@@ -32,12 +32,12 @@ const Profile = () => {
       <div>
         <Select />
       </div>
-      <div>
+      <div className="absolute bottom-28 left-0 w-full px-8">
         <Button variant="outline" onClick={logOutHandler}>
           {t('text-logout')}
         </Button>
       </div>
-    </>
+    </div>
   )
 }
 
